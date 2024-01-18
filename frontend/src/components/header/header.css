@@ -1,0 +1,10 @@
+.header {
+    background-color: gray;
+    padding: 1rem;
+}
+
+.header__links a {
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
