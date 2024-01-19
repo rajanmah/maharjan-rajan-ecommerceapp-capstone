@@ -1,35 +1,9 @@
-// import React from 'react'
-// import data from '../assets/data.js'
-
-// const Home = () => {
-//   return (
-//     <div>
-//         <main>
-//             <h1>Featured Products</h1>
-//             {data.products.map(product=> ( 
-//                <div key={product.name}>
-//                 <img src={product.image} alt={product.name} />
-//                         <p>{product.name} <span>{product.vegetarian ? "Vegetarian" : "Non-Vegetarian"}</span></p>
-//                         <p>{product.price}</p>
-//                         <p>{product.description}</p>
-//                </div>
-
-//             ))
-// }
-//         </main>
-//     </div>
-//   )
-// }
-
-// export default Home
-
-// import React, { useEffect, useState } from 'react'
 import './home.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 // import { Link } from "react-router-dom"
 import data from '../../assets/data.js'
-// import MovieSearch from '../../components/search/MovieSearch';
+
 
 
 export default function Home() {
@@ -49,7 +23,7 @@ export default function Home() {
                 >
                     {
                         data.products.map(product => (
-                           <div>
+                           <div key={product.slug}>
                                 <div className="posterImage">
                                     <img src={product.image} alt={product.image} />
                                 </div>
@@ -72,11 +46,3 @@ export default function Home() {
                 )
 
 }
-//  <div>
-//                                 <div className="carousel" key={product.name}>
-//                                     <img  src={product.image} alt={product.name} />
-//                                     <a href="#"><p>{product.name} <span>{product.vegetarian ? "Vegetarian" : "Non-Vegetarian"}</span></p></a>
-//                                     <p>$ {product.price}</p>
-//                                     <p>{product.description}</p>
-//                                 </div>
-//                             </div>

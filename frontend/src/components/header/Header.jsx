@@ -7,22 +7,16 @@ const Header = () => {
   return (
     <div className="header">
         <div className="header__links">
-            <a href="#">Home</a>
-            <a href="#">Menu</a>
-            <a href="#">Newari Food and Culture</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Cart Logo</a>
-            <a href="#">Log in</a>
+            <Link to="/" style={{ textDecoration: 'none' }}><span>Home</span></Link>
+            <Link to="/products" style={{ textDecoration: 'none' }}><span>Menu</span></Link>
+            <Link to="/newafood" style={{ textDecoration: 'none' }}><span>Newa Food and Tradition</span></Link>
+            <Link to="/about" style={{ textDecoration: 'none' }}><span>About Us</span></Link>
+            <Link to="/contact" style={{ textDecoration: 'none' }}><span>Contact Us</span></Link>
+            <Link to="/cart" style={{ textDecoration: 'none' }}><span>Cart Logo</span></Link>
+            <Link to="/login" style={{ textDecoration: 'none' }}><span>Log in</span></Link>
     
         </div>
-      {/* <Link to='/'> <img className="header__icon" src="https://www.ethic-ads.com/wp-content/uploads/play-button-png-filename-play-button-png-237.png" /> </Link>
-      <Link to='/menu' style={{ textDecoration: "none" }}> <span>Menu</span> </Link>
-      <Link to='/history' style={{ textDecoration: "none" }}><span>History</span> </Link>
-      <Link to='/aboutus' style={{ textDecoration: "none" }}><span>About Us</span> </Link>
-      <Link to='/contact' style={{ textDecoration: "none" }}><span>Contact us</span> </Link> */}
-      {/* <Link to='/discover/tv' style={{ textDecoration: "none" }}><span>Television Series</span> </Link> */}
-    </div>
+      </div>
   )
 }
 

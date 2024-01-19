@@ -1,10 +1,17 @@
 .header {
-    background-color: gray;
+    background-color:rgb(5, 125, 41);
     padding: 1rem;
+    border-radius: 10px;
 }
 
-.header__links a {
+.header__links span {
     padding: 1rem;
     justify-content: space-between;
     align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+span{
+    text-decoration: none;
 }
