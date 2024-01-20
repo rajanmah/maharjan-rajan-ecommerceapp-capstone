@@ -1,10 +1,10 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer, useContext  } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Spinner from '../../components/spinner/Spinner'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import './menuitem.css'
+import { Store } from '../../Store'
+import Button from 'react-bootstrap/Button'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -45,8 +45,15 @@ const MenuList = () => {
     fetchData()
   }, [slug])
 
+  const{state, dispatch:ctxDispatch} =useContext(Store) 
 
-
+const addToCartHandler = () => {
+ctxDispatch({
+  type: 'ADD_TO_CART',
+  payload: {...product, quantity:1}
+})
+}
+  
   return (
     loading ? <Spinner />
       : error ? <div>{error}</div>
@@ -56,12 +63,12 @@ const MenuList = () => {
             <img src={product.image} alt={product.name}></img>
           </div>
           <div className="item_details">
-            <div><h2><span>{product.name} </span> {product.vegetarian} ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" className="veg_icon" alt="veg"/> : "" </h2></div>
-            <div><h3>$ {product.price}</h3></div>
-            <div>{product.description}</div>
+            <div className="item"><h2><span>{product.name} </span> {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" className="veg_icon" alt="veg"/> : ""} </h2></div>
+            <div className="item"><h3>Price: $ {product.price}</h3></div>
+            <div className="item"><h5>{product.description}</h5></div>
           
-            <div>
-            
+            <div className="item button" >
+            {product.inStock ? <Button onClick={addToCartHandler} style={{backgroundColor:"green"}}>Add to Cart</Button> : <Button style={{backgroundColor:"red"}}>Out of Stock</Button>}
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import axios from 'axios'
 import './menu.css'
 import Spinner from '../../components/spinner/Spinner'
 import logger from 'use-reducer-logger'
+import Button from 'react-bootstrap/Button'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -55,10 +56,10 @@ const Menu = () => {
                         <div className="menu" key={product.slug}>
                             <Link to={`/products/${product.slug}`}>
                                 <img src={product.image} alt={product.name} /> </Link>
-                            <Link to={`/products/${product.slug}`}> <div>{product.name}</div> </Link>
-                            <div>${product.price}</div>
+                            <Link to={`/products/${product.slug}`} style={{textDecoration:"none" }}> <div> <span > {product.name}</span> &nbsp;&nbsp; {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" style={{width:"40px"}} alt="veg"/> : ""}</div> </Link>
+                            <div>Price: ${product.price}</div>
                             <div>{product.description}</div>
-                            <button>Add to Cart</button>
+                            <Button>Add to Cart</Button>
 
                         </div>
                     )))

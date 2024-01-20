@@ -53,3 +53,10 @@ display:inline;
 max-width:60px;
 display:inline-block
 }
+.item{
+    margin:10px;
+}
+button{
+    /* background-color: green; */
+    width:100%;
+}
