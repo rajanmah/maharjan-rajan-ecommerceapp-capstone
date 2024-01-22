@@ -59,8 +59,9 @@ const Menu = () => {
                             <Link to={`/products/${product.slug}`} style={{textDecoration:"none" }}> <div> <span > {product.name}</span> &nbsp;&nbsp; {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" style={{width:"40px"}} alt="veg"/> : ""}</div> </Link>
                             <div>Price: ${product.price}</div>
                             <div>{product.description}</div>
-                            <Button>Add to Cart</Button>
-
+                            <div className="item button" >
+            {product.inStock ? <Button  style={{backgroundColor:"green"}}>Add to Cart</Button> : <Button disabled style={{backgroundColor:"red"}}>Out of Stock</Button>}
+            </div>
                         </div>
                     )))
                 }

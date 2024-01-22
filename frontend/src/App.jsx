@@ -18,6 +18,7 @@ import Badge from 'react-bootstrap/Badge'
 import { LinkContainer } from 'react-router-bootstrap'
 import Dommy from './pages/Dommy'
 import { Store } from './Store'
+import Cart from './pages/cart/Cart'
 
 function App() {
   const{state} =useContext(Store) 
@@ -30,7 +31,7 @@ function App() {
         <Navbar bg="primary" variant="primary">
           <Container>
             <LinkContainer to='/'>
-              <Navbar.Brand>Newa Authentic Kitchen</Navbar.Brand>
+              <Navbar.Brand>Authentic Newa Kitchen</Navbar.Brand>
             </LinkContainer>
             <Nav className="me-auto fw-bolder">
               <Nav.Link href='/products'>Menu</Nav.Link>
@@ -43,7 +44,7 @@ function App() {
               <Nav.Link href='/cart' className='nav=link'><img src="https://cdn0.iconfinder.com/data/icons/food-delivery-outline-stay-home/512/Food_bag-512.png" style={{width:"40px"}} alt="cart"/>
               {cart.cartItems.length > 0 && (
                 <Badge pill bg="danger">
-                  {cart.cartItems.length}
+                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                 </Badge>
               )}
               </Nav.Link>
@@ -62,6 +63,7 @@ function App() {
               <Route path='/about' element={<About />} />
               <Route path='/contact' element={<Contact />} />
               <Route path='/login' element={<Login />} />
+              <Route path='/cart' element={<Cart />}/>
 
             </Routes>
 
