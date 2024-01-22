@@ -1,8 +1,24 @@
 import express from 'express'
 import data from './data.js'
 import cors from 'cors'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+import seedRouter from './routes/seedRoutes.js'
+
+dotenv.config()
+//connection to MongoDB
+mongoose.connect(process.env.MONGODB_URI).then(()=>{
+    console.log('Connected to Database')
+}).catch(error=>{
+    console.log(error.message)
+})
 
 const app = express()
+//importing data.js to the database
+app.use('/api/seed', seedRouter)
+
+
+
 app.use(cors())
 app.get('/api/products', (req, res)=>{
     res.send(data.products)

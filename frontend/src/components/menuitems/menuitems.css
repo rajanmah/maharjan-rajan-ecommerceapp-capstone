@@ -1,0 +1,31 @@
+.menulists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.menu {
+    /* border: 1px red solid; */
+    /* background-color: rgb(5, 125, 41); */
+    /* display:flex; */
+    flex-wrap: wrap;
+    margin: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    padding: .8rem;
+    border-radius: 10px;}
+
+.menu img {
+    width: 100%;
+    max-width: 400px;
+    max-height: 250px;
+    border-radius: 10px;
+ }
+
+ .menu span {
+    color:red;
+    text-decoration: none;
+    font-weight: 700;
+ }

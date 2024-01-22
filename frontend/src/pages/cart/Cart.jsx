@@ -55,15 +55,36 @@
 import { useContext } from 'react';
 import { Store } from '../../Store';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './cart.css'
+import axios from 'axios';
 
-export default function CartScreen() {
+export default function Cart() {
+    const navigate = useNavigate()
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
         cart: { cartItems },
     } = state;
 
+    const updateCartHandler = async (item, quantity) => {
+        const { data } = await axios.get(`http://localhost:5000/api/products/${item._id}`)
+        if (data.inStock < quantity) {
+            window.alert("Sorry, the product is Out of Stock")
+            return
+        }
+
+        ctxDispatch({
+            type: 'ADD_TO_CART',
+            payload: { ...item, quantity }
+        })
+
+    }
+    const checkoutHandler = () => {
+        navigate('/signin')
+    }
+    const removeItemHandler = (item) => {
+        ctxDispatch({ type: 'REMOVE_CART_ITEM', payload: item })
+    }
     return (
         <div>
             <h1><i>Delivery Bag</i></h1>
@@ -84,46 +105,52 @@ export default function CartScreen() {
                                     <Link to={`/products/${item.slug}`}>{item.name}</Link>
                                 </div>
                                 <div className="item-details">
-                                    <Button variant="light" disabled={item.quantity === 0}>
-                                    <strong>- </strong>
+
+                                    <Button variant="light" onClick={() => updateCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.inStock}>
+                                        <strong>+ </strong>
                                     </Button>{' '}
                                     <span>No. of items: {item.quantity}</span>{' '}
                                     <Button
                                         variant="light"
-                                        disabled={item.quantity === item.countInStock}
+                                        onClick={() => updateCartHandler(item, item.quantity - 1)}
+                                        disabled={item.quantity === 1}
                                     >
-                                        <strong>+ </strong>
+                                        <strong>- </strong>
                                     </Button>
                                 </div>
                                 <div>
                                     <div>${item.price}</div>
                                 </div>
+                                <br />
+                                {/* delete button */}
+                                <Button onClick={() => removeItemHandler(item)}>delete</Button> 
                             </div>
                         ))}
                     </div>
                 )}
                 <div>
-                {cartItems.length === 0 ? "" : ( 
-                    <div className="checkout">
-                        <div className="item_table">
-                            <div className="item_detail">
-                                <h3> Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                                    items) : $
-                                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)} </h3>
-                            </div>
-                            <div>
-                                <div className="d-grid">
-                                    <Button
-                                        type="button"
-                                        variant="primary"
-                                        disabled={cartItems.length === 0}
-                                    >
-                                        Proceed to Checkout
-                                    </Button>
+                    {cartItems.length === 0 ? "" : (
+                        <div className="checkout">
+                            <div className="item_table">
+                                <div className="item_detail">
+                                    <h3> Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
+                                        items) : $
+                                        {cartItems.reduce((a, c) => a + c.price * c.quantity, 0).toFixed(2)} </h3>
+                                </div>
+                                <div>
+                                    <div className="d-grid">
+                                        <Button
+                                            type="button"
+                                            variant="primary"
+                                            onClick={checkoutHandler}
+                                            disabled={cartItems.length === 0}
+                                        >
+                                            Proceed to Checkout
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>)}
+                        </div>)}
                 </div>
 
 

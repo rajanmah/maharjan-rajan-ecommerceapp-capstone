@@ -7,3 +7,6 @@ use-reducer-logger to see the state changes and debug issues in state changes
 
 backend
 cors >> facilitate a call to the backend
+
+
+local storage

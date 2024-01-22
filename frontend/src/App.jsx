@@ -19,6 +19,8 @@ import { LinkContainer } from 'react-router-bootstrap'
 import Dommy from './pages/Dommy'
 import { Store } from './Store'
 import Cart from './pages/cart/Cart'
+import Signin from './pages/signin/Signin'
+import Signup from './pages/signup/Signup'
 
 function App() {
   const{state} =useContext(Store) 
@@ -38,7 +40,7 @@ function App() {
               <Nav.Link href='/newafood'>Newa Food and Tradition</Nav.Link>
               <Nav.Link href='/about'>About Us</Nav.Link>
               <Nav.Link href='/contact'>Contact Us</Nav.Link>
-              <Nav.Link href='/login'>Login</Nav.Link>
+              <Nav.Link href='/signin'>Login</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href='/cart' className='nav=link'><img src="https://cdn0.iconfinder.com/data/icons/food-delivery-outline-stay-home/512/Food_bag-512.png" style={{width:"40px"}} alt="cart"/>
@@ -64,6 +66,8 @@ function App() {
               <Route path='/contact' element={<Contact />} />
               <Route path='/login' element={<Login />} />
               <Route path='/cart' element={<Cart />}/>
+              <Route path='/signin' element={<Signin />} />
+              <Route path='/signup' element={<Signup />} />
 
             </Routes>
 
@@ -75,7 +79,7 @@ function App() {
         {/* <Card />
     <Card /> <br/><br/><br/>
     <Spinner /> */}
-
+{/* <Signin /> */}
       </div>
     </BrowserRouter>
   )
