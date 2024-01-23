@@ -10,13 +10,13 @@ userRouter.get("/", async (req, res) => {
 })
 
 
-userRouter.post("/login", async (req, res) => {
-    const { email } = req.body
+userRouter.post("/signin", async (req, res) => {
+    const { email, password } = req.body
 
     try {
-        const check = await User.findOne({ email: email })
+        const user = await User.findOne({ email: email, password: password})
 
-        if (check) {
+        if (user) {
             res.json("exist")
         }
         else {
@@ -32,29 +32,34 @@ userRouter.post("/login", async (req, res) => {
 
 
 userRouter.post("/signup", async (req, res) => {
-    const { email, password } = req.body
-
-    const data = {
-        email: email,
-        password: password
-    }
-
     try {
-        const check = await User.findOne({ email: email })
-
-        if (check) {
-            res.json("exist")
+        if (
+            !req.body.email ||
+            !req.body.password
+        ) {
+            return res.status(400).send({
+                message: "Missing fields!: title, author, publishedYear"
+            })
         }
-        else {
-            res.json("notexist")
-            await User.insertMany([data])
+        const newUser = {
+            email: req.body.email,
+            password: req.body.password
         }
+        const user = await User.create(newUser)
+        return res.status(201).send(user)
 
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message })
     }
-    catch (e) {
-        res.json("fail")
-    }
-
 })
+
+ try {
+    
+ } catch (error) {
+    
+ }
+    
+
 
 export default userRouter

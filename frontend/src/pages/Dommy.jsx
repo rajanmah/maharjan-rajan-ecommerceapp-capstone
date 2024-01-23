@@ -7,7 +7,7 @@ function Dommy (){
     return (
         <div className="homepage">
 
-            <h1>Hello {location.state} and welcome to the home</h1>
+            <h1>Your are logged in as {location.state.id}</h1>
 
         </div>
     )

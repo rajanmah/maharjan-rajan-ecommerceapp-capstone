@@ -82,7 +82,7 @@ function App() {
         {/* <Card />
     <Card /> <br/><br/><br/>
     <Spinner /> */}
-<Dommy />
+{/* <Dommy /> */}
       </div>
     </BrowserRouter>
   )

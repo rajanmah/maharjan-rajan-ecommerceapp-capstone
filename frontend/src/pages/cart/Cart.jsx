@@ -55,12 +55,13 @@
 import { useContext } from 'react';
 import { Store } from '../../Store';
 import Button from 'react-bootstrap/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './cart.css'
 import axios from 'axios';
 
 export default function Cart() {
     const navigate = useNavigate()
+    const location = useLocation()
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
         cart: { cartItems },
@@ -89,7 +90,7 @@ export default function Cart() {
         <div>
             <h1><i>Delivery Bag</i></h1>
             <div>
-
+{location.state.id}
                 {cartItems.length === 0 ? (
                     (<h4>Delivery Bag is Empty. Explore<Link to='/products'> Menu</Link> to entice your taste bud. </h4>)
                 ) : (

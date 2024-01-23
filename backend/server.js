@@ -6,6 +6,7 @@ import dotenv from 'dotenv'
 import seedRouter from './routes/seedRoutes.js'
 import productRouter from './routes/productRoutes.js'
 import userRouter from './routes/userRoutes.js'
+import bodyParser from 'body-parser'
 
 dotenv.config()
 //connection to MongoDB
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGODB_URI).then(()=>{
 const app = express()
 //importing data.js to the database
 app.use(cors())
+app.use(bodyParser.json());
 app.use('/api/seed', seedRouter)
 app.use('/api/products', productRouter)
 app.use('/api/users', userRouter)

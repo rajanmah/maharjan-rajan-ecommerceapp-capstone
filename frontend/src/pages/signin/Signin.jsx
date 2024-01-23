@@ -71,7 +71,7 @@
 // export default Signin
 
 
-import React, { useEffect, useState } from "react"
+import React, {useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 
@@ -93,14 +93,14 @@ function Signin() {
             })
             .then(res=>{
                 if(res.data=="exist"){
-                    navigate("/dommy",{state:{id:email}})
+                    navigate("/cart",{state:{id:email}})
                 }
                 else if(res.data=="notexist"){
-                    alert("User have not sign up")
+                    alert("Invalid email or passwort")
                 }
             })
             .catch(e=>{
-                alert("wrong details")
+                alert("Invalid email or password")
                 console.log(e);
             })
 
