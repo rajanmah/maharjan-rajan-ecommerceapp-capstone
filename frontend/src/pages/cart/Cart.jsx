@@ -91,7 +91,7 @@ export default function Cart() {
             <div>
 
                 {cartItems.length === 0 ? (
-                    (<h4>Cart is Empty. <Link to='/products'>Go to Menu</Link> </h4>)
+                    (<h4>Delivery Bag is Empty. Explore<Link to='/products'> Menu</Link> to entice your taste bud. </h4>)
                 ) : (
                     <div className="cart_items">
                         {cartItems.map((item) => (

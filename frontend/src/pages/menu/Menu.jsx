@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import { Store } from '../../Store'
 import MenuItems from '../../components/menuitems/MenuItems'
 
+
 const reducer = (state, action) => {
     switch (action.type) {
         case 'FETCH_REQUEST':
