@@ -1,57 +1,3 @@
-// import { useContext } from 'react'
-// import { Store } from '../../Store'
-// import { Link } from 'react-router-dom';
-
-// const Cart = () => {
-//     const { state, dispatch: ctxDispatch } = useContext(Store);
-//     const {
-//       cart: { cartItems },
-//     } = state;
-
-//     return (
-//         <div>
-//             <div className="cart_title"><h1>Delivery Bag</h1></div>
-//             <div className="cart_col">
-//             {cartItems.length === 0 ? (<h4>Cart is Empty. <Link to='/products'>Go to Menu</Link> </h4>) : (
-//                 <div>
-//                     {cartItems.map((item) = (
-//                         <div>
-//                             <div className="cart_image"><img src={item.image} alt={item.name} /> {' '}
-//                                 <Link to={`/product/${item.slug}`}>{item.name}</Link>
-//                             </div>
-//                             <div>
-//                                 <button>-</button>
-//                                 <span>{item.quantity}</span>
-//                                 <button>+</button>
-//                             </div>
-//                             <div className="item_price">{item.price}</div>
-//                             <button>Delete</button>
-//                         </div>
-//                     ))}
-//                 </div>
-//             )}
-//             </div>
-
-//             <div>
-//                 <h3>Subtotal ({cartItems.reduce((a,c) => a+c.quantity, 0)}
-//                 items): $
-//                 {cartItems.reduce((a,c) => a +c.price * c.quantity, 0)}
-//                 </h3>
-//                 </div>
-
-//                 <div>
-//                     <button>proceed to checkout</button>
-//                 </div>
-//         </div>
-
-//     );
-
-// }
-
-// export default Cart
-
-
-
 import { useContext } from 'react';
 import { Store } from '../../Store';
 import Button from 'react-bootstrap/Button';
@@ -90,7 +36,6 @@ export default function Cart() {
         <div>
             <h1><i>Delivery Bag</i></h1>
             <div>
-{location.state.id}
                 {cartItems.length === 0 ? (
                     (<h4>Delivery Bag is Empty. Explore<Link to='/products'> Menu</Link> to entice your taste bud. </h4>)
                 ) : (

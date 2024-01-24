@@ -93,7 +93,7 @@ function Signin() {
             })
             .then(res=>{
                 if(res.data=="exist"){
-                    navigate("/cart",{state:{id:email}})
+                    navigate("/checkout",{state:{id:email}})
                 }
                 else if(res.data=="notexist"){
                     alert("Invalid email or passwort")

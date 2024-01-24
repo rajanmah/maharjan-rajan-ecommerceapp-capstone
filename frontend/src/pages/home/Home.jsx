@@ -47,8 +47,11 @@ export default function Home() {
 
 
     return (
-        <>
-            <h1>Featured Products</h1>
+        <main>
+           <div className="intro">
+            <div className="main_text"><h1>Experienct Exquisite Newari Food</h1></div>
+            
+           </div>
             <div className="featured">
                 <Carousel
                     showThumbs={false}
@@ -76,7 +79,7 @@ export default function Home() {
                     }
                 </Carousel>
             </div>
-        </>
+        </main>
 
 
     )

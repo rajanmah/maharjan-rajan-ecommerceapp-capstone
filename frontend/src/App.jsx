@@ -16,7 +16,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Badge from 'react-bootstrap/Badge'
 import { LinkContainer } from 'react-router-bootstrap'
-import Dommy from './pages/Dommy'
+import Checkout from './pages/checkout/Checkout'
 import { Store } from './Store'
 import Cart from './pages/cart/Cart'
 import Signin from './pages/signin/Signin'
@@ -69,7 +69,7 @@ function App() {
               <Route path='/cart' element={<Cart />}/>
               <Route path='/signin' element={<Signin />} />
               <Route path='/signup' element={<Signup />} />
-              <Route path='/dommy' element={<Dommy />} />
+              <Route path='/checkout' element={<Checkout />} />
 
 
             </Routes>

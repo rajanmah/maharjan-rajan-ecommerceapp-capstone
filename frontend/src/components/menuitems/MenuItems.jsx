@@ -6,9 +6,9 @@ import axios from 'axios';
 import './menuitems.css'
 
 const MenuItems = (props) => {
-    const {product}= props
+  const { product } = props
 
-    const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
@@ -27,24 +27,23 @@ const MenuItems = (props) => {
     });
   };
 
-    return (
+  return (
 
-        <div>
-            <div className="menu">
-                <Link to={`/products/${product.slug}`}>
-                    <img src={product.image} alt={product.name} /> </Link>
-                <Link to={`/products/${product.slug}`} style={{ textDecoration: "none" }}> <div> <span > {product.name}</span> &nbsp;&nbsp; {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" style={{ width: "40px" }} alt="veg" /> : ""}</div> </Link>
-                <div>Price: ${product.price}</div>
-                <div>{product.description}</div>
-                <div className="item button" >
-                    {product.inStock === 0 ? (<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "red" }}>Out of Stock</Button>): (<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "green" }}>Add to Cart</Button>)} 
-                    {/* {product.inStock === 0 ? (<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "green" }}>Add to Cart</Button>):(<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "red" }}>Out of Stock</Button>)}  */}
-                </div>
-            </div>
-        </div>
+    <div className="menu">
+      <Link to={`/products/${product.slug}`} style={{ textDecoration: "none" }}>
+        <img className="menu_img" src={product.image} alt={product.name} />
+       <div> <span > {product.name}</span> {'  '} {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" style={{ width: "40px" }} alt="veg" /> : ""}</div> </Link>
+      <div className="menu_overlay">Price: ${product.price}</div>
+      <div>{product.description}</div>
+      <div className="item button" >
+        {product.inStock === 0 ? (<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "red" }}>Out of Stock</Button>) : (<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "green" }}>Add to Cart</Button>)}
+        {/* {product.inStock === 0 ? (<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "green" }}>Add to Cart</Button>):(<Button onClick={() => addToCartHandler(product)} style={{ backgroundColor: "red" }}>Out of Stock</Button>)}  */}
+      </div>
+    </div>
 
 
-    )
+
+  )
 }
 
 export default MenuItems
