@@ -5,3 +5,8 @@
 main{
   flex:1
 }
+
+
+footer:hover {
+ background-color: azure;
+}

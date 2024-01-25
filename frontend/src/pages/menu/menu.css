@@ -1,5 +1,11 @@
+h1{
+    text-shadow: 5px 5px 5px white;
+ 
+ }
+
 .menu_list {
     padding: 0 3rem 3rem 3rem;
+   margin-top: 100px;;
 }
 
 .menu_title {

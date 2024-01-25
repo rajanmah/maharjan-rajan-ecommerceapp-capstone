@@ -1,0 +1,23 @@
+.newafood {
+    margin-top:100px;
+}
+.newafood h5{
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+/* .newafood img{
+    width:50%;
+    border-radius: 10px;
+} */
+.newafood img{
+    width:50%;
+    float:left;
+    padding: 20px;
+    border-radius:10px;
+}
+
+.newafood p{
+   line-height:1.5 
+}

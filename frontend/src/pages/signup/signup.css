@@ -1,0 +1,18 @@
+.signup {
+    margin-top: 100px;
+    width: 50%;
+}
+form{
+    justify-content: center;
+    align-items: center;
+
+}
+.form_body{
+    background-color: white;
+    padding:40px;
+    border-radius: 10px;
+   }
+
+input{
+    margin:20px;
+}

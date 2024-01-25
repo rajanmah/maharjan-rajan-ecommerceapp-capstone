@@ -75,12 +75,12 @@ const MenuList = () => {
             <img src={product.image} alt={product.name}></img>
           </div>
           <div className="item_details">
-            <div className="item"><h2><span>{product.name} </span> {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" className="veg_icon" alt="veg" /> : ""} </h2></div>
+            <div className="item"><h2><span>{product.name} &nbsp; </span> {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" className="veg_icon" alt="veg" /> : ""} </h2></div>
             <div className="item"><h3>Price: $ {product.price}</h3></div>
             <div className="item"><h5> Description: {product.description}</h5></div>
 
             <div className="item button" >
-              {product.inStock ? <Button onClick={addToCartHandler} style={{ backgroundColor: "green" }}>Add to Cart</Button> : <Button style={{ backgroundColor: "red" }}>Out of Stock</Button>}
+              {product.inStock ? <Button onClick={addToCartHandler} style={{ backgroundColor: "rgb(9, 9, 160)"}}>Add to Bag</Button> : <Button style={{ backgroundColor: "red" }}>Out of Stock</Button>}
             </div>
           </div>
         </div>

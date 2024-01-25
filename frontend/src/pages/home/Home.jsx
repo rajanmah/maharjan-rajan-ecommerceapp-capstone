@@ -3,9 +3,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { useEffect, useReducer } from 'react'
 import logger from 'use-reducer-logger';
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 // import data from '../../assets/data.js'
 import axios from 'axios'
+import Button from 'react-bootstrap/esm/Button';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -47,11 +48,18 @@ export default function Home() {
 
 
     return (
-        <main>
-           <div className="intro">
-            <div className="main_text"><h1>Experienct Exquisite Newari Food</h1></div>
-            
-           </div>
+        <div className="main">
+            <div className="intro">
+                <div className="main_text">
+                    <p>EXPERIENCE ETHNIC <br /> NEWA CUISINE IN <br /> NEW YORK </p></div>
+                <Link to="/products" style={{ textDecoration: "none" }} className="explore"><span className="explore">explore</span></Link>
+            </div>
+            <br />
+            <div className="intro_text">
+                <h1>Who We Are</h1>
+                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta saepe quia ducimus nam sapiente quos id, quod ipsum ullam porro quasi quisquam pariatur cupiditate nesciunt voluptates exercitationem amet est excepturi!</h6>
+            </div>
+
             <div className="featured">
                 <Carousel
                     showThumbs={false}
@@ -66,20 +74,22 @@ export default function Home() {
                             <div className="posterImage">
                                 <img src={product.image} alt={product.image} />
                             </div>
-
-                            <div className="posterImage__overlay">
+                            {/* <div className="posterImage__overlay"> */}
                                 <div className="posterImage__title">{product.name}</div>
-                                {/* <div className="posterImage__runtime">$ {product.price}</div> */}
-                                {/* <div className="posterImage__description">
-                                    {product.description}
-                                </div> */}
-                            </div>
+                            {/* </div> */}
                         </div>
                     ))
                     }
                 </Carousel>
+                <div className="intro_text we_are">
+                    <h1>Pioneer in Newa Cuisine since 1980</h1>
+                    <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores minima eius totam iure pariatur voluptatibus quia sed eos fugiat accusantium. Necessitatibus minus obcaecati, vero nam et incidunt. Sequi impedit aut libero recusandae, nam necessitatibus! Corrupti repellendus recusandae optio sint enim.</h6>
+                </div>
+                <br />
+                <br />
+                <br />
             </div>
-        </main>
+        </div>
 
 
     )

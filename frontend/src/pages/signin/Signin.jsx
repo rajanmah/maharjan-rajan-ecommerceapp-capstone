@@ -1,79 +1,7 @@
-// import {useState}  from 'react'
-// import { useNavigate } from 'react-router-dom';
-
-// const Signin = () => {
-//     const navigate = useNavigate();
-//     //for user inputs
-//     const [userData, setUserData] = useState({
-//         username: '',
-//         password:'',
-//     })
-//   // Handle input changes
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setUserData({
-//       ...userData,
-//       [name]: value,
-//     });
-//   };
-
-//   // Handle form submission
-//   const handleFormSubmit = (e) => {
-//     e.preventDefault();
-//     // TODO: Implement authentication logic here
-//     console.log('Form submitted with:', userData);
-//     // Reset form fields after submission
-//     setUserData({
-//       username: '',
-//       password: '',
-//     });
-//   };
-//   const signupHandler = () => {
-//     navigate('/signup')
-// }
-
-//   return (
-//     <div>
-//     <div className="signin">
-//     <h2>Login</h2>
-//     <form onSubmit={handleFormSubmit}>
-//       <label>
-//         Username:
-//         <input
-//           type="text"
-//           name="username"
-//           required
-//           value={userData.username}
-//           onChange={handleInputChange}
-//         />
-//       </label>
-//       <br />
-//       <label>
-//         Password:
-//         <input
-//           type="password"
-//           name="password"
-//           required
-//           value={userData.password}
-//           onChange={handleInputChange}
-//         />
-//       </label>
-//       <br />
-//       <button type="submit">Login</button>
-//     </form>
-//     </div>
-//     <br />
-//     <button onClick={signupHandler} type="submit"> Not a Member? Create your account!!!</button>
-//   </div>
-//   )
-// }
-
-// export default Signin
-
-
 import React, {useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
+import './signin.css'
 
 
 function Signin() {
@@ -85,9 +13,7 @@ function Signin() {
 
     async function submit(e){
         e.preventDefault();
-
         try{
-
             await axios.post("http://localhost:5000/api/users/signin",{
                 email,password
             })
@@ -96,40 +22,31 @@ function Signin() {
                     navigate("/checkout",{state:{id:email}})
                 }
                 else if(res.data=="notexist"){
-                    alert("Invalid email or passwort")
+                    alert("Invalid email or password.")
                 }
             })
-            .catch(e=>{
-                alert("Invalid email or password")
-                console.log(e);
+            .catch(error=>{
+                alert("Invalid email or password.")
+                console.log(error);
             })
-
         }
-        catch(e){
-            console.log(e);
-
+        catch(error){
+            console.log(error);
         }
-
     }
 
     return (
         <div className="signin">
-
-            <h1>Signin</h1>
-
+            <h1>Sign in</h1>
+            <div className="form_body">
             <form action="POST">
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  />
-                <input type="password" name="password" autoComplete="on" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password"  />
-                <input type="submit" onClick={submit} />
-
+                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  /> <br/><br/>
+                <input type="password" name="password" autoComplete="on" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password"  /> <br /><br/>
+                <input type="submit" style={{ backgroundColor: "rgb(9, 9, 160)", color:"white"}} onClick={submit} />
             </form>
-
             <br />
-            <p>OR</p>
-            <br />
-
-            <Link to="/signup">Signup Page</Link>
-
+            <h5>not a member? <Link to="/signup" style={{textDecoration:"none"}}> Sign up</Link> here!</h5>
+            </div>
         </div>
     )
 }

@@ -49,7 +49,7 @@ const Menu = () => {
 
     return (
         <div className="menu_list">
-        <h2 className="list__title">Menu</h2>
+        <h1 className="list__title">Our Menu</h1>
         <div className="menu_cards">
           {
             products.map(product => (
@@ -58,21 +58,7 @@ const Menu = () => {
           }
         </div>
       </div>
-            // <div className="menu_lists">
-            //     <h1>Menu</h1>
-            //     <div>
-            //     {loading ? (<Spinner />) : error ? {error}: (
-            //         <div className="menu_cards">
-            //             {products.map((product) => (
-            //                 // <div key={product.slug}>
-            //                     <MenuItems product={product}/>
-            //                 // </div>
-                          
-            //             ))}
-            //         </div>
-            //     )}
-            //     </div>
-            // </div>
+        
           )
 }
 

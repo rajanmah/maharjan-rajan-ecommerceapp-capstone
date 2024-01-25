@@ -1,103 +1,7 @@
-// import {useState} from 'react'
-
-// const Signup = () => {
-//     const [formData, setFormData] = useState({
-//         username: '',
-//         email: '',
-//         password: '',
-//         address: '',
-//         phonenumber: '',
-
-//       });
-
-//       // Handle form field changes
-//       const handleChange = (e) => {
-//         const { name, value } = e.target;
-//         setFormData((prevData) => ({
-//           ...prevData,
-//           [name]: value,
-//         }));
-//       };
-
-//       // Handle form submission
-//       const handleSubmit = (e) => {
-//         e.preventDefault();
-//         // You can perform form submission logic here
-//         console.log('Form submitted with data:', formData);
-//       };
-
-//   return (
-//     <div>
-//         <form onSubmit={handleSubmit}>
-//       <label>
-//         Username:
-//         <input
-//           type="text"
-//           name="username"
-//           required
-//           value={formData.username}
-//           onChange={handleChange}
-//         />
-//       </label>
-//       <br />
-//       <label>
-//         Email:
-//         <input
-//           type="email"
-//           name="email"
-//           required
-//           value={formData.email}
-//           onChange={handleChange}
-//         />
-//       </label>
-//       <br />
-//       <label>
-//         Password:
-//         <input
-//           type="password"
-//           name="password"
-//           required
-//           value={formData.password}
-//           onChange={handleChange}
-//         />
-//       </label>
-//       <br />
-//       <label>
-//         Address:
-//         <input
-//           type="text"
-//           name="address"
-//           required
-//           value={formData.address}
-//           onChange={handleChange}
-//         />
-//       </label>
-//       <br />
-//       <label>
-//         Phone:
-//         <input
-//           type="number"
-//           maxLength={10}
-//           name="phonenumber"
-//           required
-//           value={formData.phonenumber}
-//           onChange={handleChange}
-//         />
-//       </label>
-//       <br />
-//       <button type="submit">Sign Up</button>
-//     </form>
-
-//     </div>
-//   )
-// }
-
-// export default Signup
-
-
 import React, { useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
+import './signup.css'
 
 
 function Signup() {
@@ -116,42 +20,39 @@ function Signup() {
             alert("User already exists")
           }
           else if (res.data == "notexist") {
-            navigate("/dommy", { state: { id: email } })
+            navigate("/", { state: { id: email } })
+            
           }
         })
-        .catch(e => {
-          alert("wrong details")
-          console.log(e);
+        .catch(error => {
+          alert("Type valid email and password.")
+          console.log(error);
         })
-
     }
-    catch (e) {
-      console.log(e);
-
+    catch (error) {
+     console.log(error);
     }
 
   }
 
-  <input type="password" name="password" autocomplete="on"></input>
-
   return (
     <div className="signup">
-
       <h1>Signup</h1>
-
+<div className="form_body">
       <form action="POST">
-        <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
-        <input type="password" name="password" autoComplete="on" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
-        <input type="submit" onClick={submit} />
+        <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" /> <br/><br/>
+        <input type="password" name="password" autoComplete="on" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" /> <br/><br/>
+        <input type="text"  placeholder="Address" /> <br/><br/>
+
+        <input type="number"  placeholder="Phone Number" /> <br/><br/>
+
+        <input type="submit" style={{ backgroundColor: "rgb(9, 9, 160)", color:"white"}}  onClick={submit} />
 
       </form>
 
       <br />
-      <p>OR</p>
-      <br />
-
-      <Link to="/signin">Signin Page</Link>
-
+     <h5>Click here to <Link to="/signin" style={{textDecoration:"none"}}>Sign in</Link></h5>
+      </div>
     </div>
   )
 }

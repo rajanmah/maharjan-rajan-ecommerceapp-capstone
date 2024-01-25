@@ -18,6 +18,7 @@ const Checkoutbox = (props) => {
                                             variant="primary"
                                             onClick={checkoutHandler}
                                             disabled={cartItems.length === 0}
+                                            style={{ backgroundColor: "rgb(9, 9, 160)"}}
                                         >
                                             Proceed to Checkout
                                         </Button>
