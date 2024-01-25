@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Button from "react-bootstrap/esm/Button";
 import './checkout.css'
 
-function Checkout() {
+const Checkout =() => {
     const location = useLocation()
     const navigate= useNavigate()
 const successHandler=()=>{

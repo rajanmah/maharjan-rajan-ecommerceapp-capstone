@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer, useContext } from 'react'
 import axios from 'axios'
 import './menu.css'
-import Spinner from '../../components/spinner/Spinner'
 import logger from 'use-reducer-logger'
 import MenuItems from '../../components/menuitems/MenuItems'
 
@@ -49,17 +48,17 @@ const Menu = () => {
 
     return (
         <div className="menu_list">
-        <h1 className="list__title">Our Menu</h1>
-        <div className="menu_cards">
-          {
-            products.map(product => (
-              <MenuItems product={product} />
-            ))
-          }
+            <h1 className="list__title">Enjoy <br />FREE Delivery</h1>
+            <div className="menu_cards">
+                {
+                    products.map(product => (
+                        <MenuItems product={product} />
+                    ))
+                }
+            </div>
         </div>
-      </div>
-        
-          )
+
+    )
 }
 
 export default Menu

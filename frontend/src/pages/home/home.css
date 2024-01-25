@@ -1,86 +1,84 @@
 body {
-    background-image: url("https://images.pexels.com/photos/732895/pexels-photo-732895.jpeg");
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    margin:0;
-  }
+  background-image: url("https://images.pexels.com/photos/732895/pexels-photo-732895.jpeg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+}
 
-  .main {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Patan-Palastplatz-14-Tauben-2013-gje.jpg/1920px-Patan-Palastplatz-14-Tauben-2013-gje.jpg");
-    background-color: white;
-    height: 90vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    margin:0;
-    border-radius: 10px;
-  }
-  .explore {
-    background-color: rgb(9, 9, 160); 
-    margin-left: 100px;
-    color: white;
-    font-size: 2vw;
-    width:200px;
-    height: 50px;
-    padding: 30px;
-    border-radius: 10px;
-  }
- 
+.main {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Patan-Palastplatz-14-Tauben-2013-gje.jpg/1920px-Patan-Palastplatz-14-Tauben-2013-gje.jpg");
+  background-color: white;
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.explore {
+  background-color: rgb(9, 9, 160);
+  margin-left: 100px;
+  color: white;
+  font-size: 2vw;
+  width: 200px;
+  height: 50px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
 .intro {
-    margin-top:1.5rem;
-    margin-bottom: 5rem;
-    opacity:1;
-    height:80vh;
-    margin-top: 100px;
+  margin-bottom: 4rem;
+  opacity: 1;
+  height: 80vh;
+  margin-top: 100px;
 }
 
-.intro p{
-color:white;
-   font-size: 4vw;
-   text-shadow: 5px 5px 5px black;
-   font-weight: 500;
-   padding:100px;
+.intro p {
+  color: white;
+  font-size: 4vw;
+  text-shadow: 5px 5px 5px black;
+  font-weight: 500;
+  padding: 100px;
 }
 
-.featured{
-    margin-top: 50px;
-    margin-bottom: 100px;
-    border-radius: 20px;;
+.featured {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+  ;
 }
 
 .intro_text {
-    margin:15px;
-    background-color: beige;
-    border-radius: 10px;
-    padding: 20px;
+  margin: 15px;
+  background-color: beige;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 
-.posterImage{
-   max-height: 200px;
-    margin-bottom: 180px;
+.posterImage {
+  max-height: 200px;
+  margin-bottom: 180px;
 }
 
 .posterImage img {
-    margin: auto;
-    display: block;
-    width: 100%;
-    border-radius: 15px;
+  margin: auto;
+  display: block;
+  width: 100%;
+  border-radius: 15px;
 }
 
 .posterImage__title {
-    font-weight: 700;
-    padding-bottom:20px;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: left;
-    padding-left: 10px;
-   text-shadow: 0 0 5px white;
-
+  font-weight: 700;
+  padding-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: left;
+  padding-left: 10px;
+  text-shadow: 0 0 5px white;
 }
-
-

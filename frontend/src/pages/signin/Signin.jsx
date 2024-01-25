@@ -4,10 +4,8 @@ import { useNavigate, Link } from "react-router-dom"
 import './signin.css'
 
 
-function Signin() {
-
+const Signin =() => {
     const navigate=useNavigate();
-
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
 

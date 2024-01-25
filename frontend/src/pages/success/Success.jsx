@@ -1,7 +1,7 @@
 
 import './success.css'
 
-function Success() {
+const Success =()=> {
 
 
     return (

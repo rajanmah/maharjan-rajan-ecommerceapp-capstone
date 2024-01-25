@@ -14,20 +14,17 @@ userRouter.post("/signin", async (req, res) => {
     const { email, password } = req.body
 
     try {
-        const user = await User.findOne({ email: email, password: password})
-
+        const user = await User.findOne({ email: email, password: password })
         if (user) {
             res.json("exist")
         }
         else {
             res.json("notexist")
         }
-
     }
     catch (e) {
         res.json("fail")
     }
-
 })
 
 
@@ -54,12 +51,10 @@ userRouter.post("/signup", async (req, res) => {
     }
 })
 
- try {
-    
- } catch (error) {
-    
- }
-    
+try {
 
+} catch (error) {
+    console.log(error)
+}
 
 export default userRouter

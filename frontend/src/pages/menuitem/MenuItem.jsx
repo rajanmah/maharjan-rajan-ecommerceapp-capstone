@@ -5,7 +5,7 @@ import Spinner from '../../components/spinner/Spinner'
 import './menuitem.css'
 import { Store } from '../../Store'
 import Button from 'react-bootstrap/Button'
-import { getError } from '../../utils' 
+import { getError } from '../../utils'
 
 
 const reducer = (state, action) => {
@@ -49,12 +49,12 @@ const MenuList = () => {
 
   const { state, dispatch: ctxDispatch } = useContext(Store)
   const { cart } = state
-  
+
   const addToCartHandler = async (item) => {  //adding items to the cart
     const existItem = cart.cartItems.find((x) => x._id === product._id)
     const quantity = existItem ? existItem.quantity + 1 : 1
     const { data } = await axios.get(`/api/products/${product._id}`)
-// console.log(data)
+    // console.log(data)
     if (data.inStock < quantity) {
       window.alert("Sorry, the product is Out of Stock")
       return
@@ -78,9 +78,8 @@ const MenuList = () => {
             <div className="item"><h2><span>{product.name} &nbsp; </span> {product.vegetarian ? <img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/vegetarian-icon.png" className="veg_icon" alt="veg" /> : ""} </h2></div>
             <div className="item"><h3>Price: $ {product.price}</h3></div>
             <div className="item"><h5> Description: {product.description}</h5></div>
-
             <div className="item button" >
-              {product.inStock ? <Button onClick={addToCartHandler} style={{ backgroundColor: "rgb(9, 9, 160)"}}>Add to Bag</Button> : <Button style={{ backgroundColor: "red" }}>Out of Stock</Button>}
+              {product.inStock ? <Button onClick={addToCartHandler} style={{ backgroundColor: "rgb(9, 9, 160)" }}>Add to Bag</Button> : <Button style={{ backgroundColor: "red" }}>Out of Stock</Button>}
             </div>
           </div>
         </div>

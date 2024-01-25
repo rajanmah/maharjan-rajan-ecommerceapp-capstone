@@ -13,18 +13,18 @@ const Contact = () => {
           <br />
           <input type="email" name="email" placeholder="Your email address" required />
           <br />
-          <textarea name="message" rows="6" placeholder="Mention the reason to contact" required />
+          <textarea name="message" rows="6" placeholder="Mention your issues here!" required />
           <br />
           <input style={{ backgroundColor: "rgb(9, 9, 160)", color: "white" }} type="submit" />
         </form>
-       
-          <h5>Find us on Social Media</h5>
-          <Link style={{textDecoration:"none"}} target="_blank" to="https://www.facebook.com"> Facebook </Link> |
-          <Link style={{textDecoration:"none"}} target="_blank" to="https://www.x.com"> X </Link> |
-          <Link style={{textDecoration:"none"}} target="_blank" to="https://www.instagram.com"> Instagram </Link>
+        <br />
+        <h5>Follow us on Social Media</h5>
+        <Link style={{ textDecoration: "none" }} target="_blank" to="https://www.facebook.com"> Facebook </Link> |
+        <Link style={{ textDecoration: "none" }} target="_blank" to="https://www.x.com"> X </Link> |
+        <Link style={{ textDecoration: "none" }} target="_blank" to="https://www.instagram.com"> Instagram </Link>
 
-          <p>Visit out Store at 123 Main St, Place, NY 10012</p>
-         </div>
+        <p>Visit out Store at 123 Main St, Place, NY 10012</p>
+      </div>
 
     </div >
   )

@@ -37,7 +37,7 @@ export default function Cart() {
             <h1>Delivery Bag</h1>
             <div>
                 {cartItems.length === 0 ? (
-                    (<h4>Empty Bag, no worries, <br/><br/> Explore our <Link style={{textDecoration: 'none'}} to='/products'> Menu</Link> to entice your taste bud. </h4>)
+                    (<h4>Empty Bag, no worries, <br /><br /> Explore our <Link style={{ textDecoration: 'none' }} to='/products'> Menu</Link> to entice your taste buds. </h4>)
                 ) : (
                     <div className="cart_items">
                         {cartItems.map((item) => (
@@ -48,7 +48,7 @@ export default function Cart() {
                                         alt={item.name}
                                         className="img-fluid rounded img-thumbnail"
                                     ></img>{' '} <br />
-                                    <Link to={`/products/${item.slug}`} style={{textDecoration:"none", color:"red"}}><strong>{item.name}</strong></Link>
+                                    <Link to={`/products/${item.slug}`} style={{ textDecoration: "none", color: "red" }}><strong>{item.name}</strong></Link>
                                 </div>
                                 <div className="item-details">
                                     <Button variant="light" onClick={() => updateCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.inStock}>
@@ -63,41 +63,41 @@ export default function Cart() {
                                         <span> - </span>
                                     </Button>
                                     <div>
-                                    <div><span>Price: ${item.price}/item</span></div>
+                                        <div><span>Price: ${item.price}/item</span></div>
+                                    </div>
                                 </div>
-                                </div>
-                                
+
                                 <br />
                                 {/* delete button */}
-                                <Button style={{ backgroundColor: "rgb(9, 9, 160)"}} onClick={() => removeItemHandler(item)}>Remove</Button> 
+                                <Button style={{ backgroundColor: "rgb(9, 9, 160)" }} onClick={() => removeItemHandler(item)}>Remove</Button>
                             </div>
                         ))}
                     </div>
                 )}
                 <div>
                     {cartItems.length === 0 ? "" : (
-                        
-                            <div className="item_table">
-                                <div className="item_detail">
-                                    <h3> No. of Items: {cartItems.reduce((a, c) => a + c.quantity, 0)} 
-                                    <br/> Total Price : $
-                                        {cartItems.reduce((a, c) => a + c.price * c.quantity, 0).toFixed(2)} </h3>
-                                </div>
-                                <div>
-                                    <div className="d-grid">
-                                        <Button
-                                            type="button"
-                                            variant="primary"
-                                            onClick={checkoutHandler}
-                                            disabled={cartItems.length === 0}
-                                            style={{ backgroundColor: "rgb(9, 9, 160)"}}
-                                        >
-                                            Proceed to Checkout
-                                        </Button>
-                                    </div>
+
+                        <div className="item_table">
+                            <div className="item_detail">
+                                <h3> No. of Items: {cartItems.reduce((a, c) => a + c.quantity, 0)}
+                                    <br /> Total Price : $
+                                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0).toFixed(2)} </h3>
+                            </div>
+                            <div>
+                                <div className="d-grid">
+                                    <Button
+                                        type="button"
+                                        variant="primary"
+                                        onClick={checkoutHandler}
+                                        disabled={cartItems.length === 0}
+                                        style={{ backgroundColor: "rgb(9, 9, 160)" }}
+                                    >
+                                        Proceed to Checkout
+                                    </Button>
                                 </div>
                             </div>
-                       )}
+                        </div>
+                    )}
                 </div>
 
 

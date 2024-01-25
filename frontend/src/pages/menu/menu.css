@@ -1,20 +1,20 @@
-h1{
+h1 {
     text-shadow: 5px 5px 5px white;
- 
- }
+
+}
 
 .menu_list {
     padding: 0 3rem 3rem 3rem;
-   margin-top: 100px;;
+    margin-top: 100px;
 }
 
 .menu_title {
-font-size: 1.75rem;
-margin:  2.5rem;
+    font-size: 1.75rem;
+    margin: 2.5rem;
 }
 
 .menu_cards {
     display: flex;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     justify-content: center;
 }
